@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+
+    <form th:action="@{/logout}" method="get">
+        <button class="btn btn-md btn-danger btn-block" name="registration"
+                type="Submit">Logout
+        </button>
+    </form>
+
+    <div class="panel-group" style="margin-top:40px">
+        <div class="panel panel-primary">
+            <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
+            <h2><span class="text-success" th:utext="${errorMessage}"></span></h2>
+
+            <div class="panel-heading">
+                <span th:utext="${userDetails.username}"></span> -
+                <span th:utext="${userDetails.balance}"></span>
+            </div>
+            <div class="panel-body">
+<!--                <img th:src="@{/images/beer.jpg}" class="img-responsive center-block" width="400" height="400"-->
+<!--                     alt="Beer"/>-->
+            </div>
+            <form th:action="@{/deposit}" method="POST" class="form-signin">
+                <input type="number" placeholder="Amount To deposit"
+                       id="deposit" th:name="depositAmount" name="depositAmount" class="form-control"/> <br/>
+                <button class="btn btn-lg btn-primary btn-block" name="depositMoney" value="Deposit Money" type="Submit"
+                        th:text="Deposit"></button>
+            </form>
+
+            <br>
+            <form th:action="@{/withdraw}" method="POST" class="form-signin">
+                <input type="number" placeholder="Amount To Withdraw"
+                       id="withdraw" th:name="depositAmount" name="depositAmount" class="form-control"/> <br/>
+                <button class="btn btn-lg btn-primary btn-block" name="depositMoney" value="Deposit Money" type="Submit"
+                        th:text="Withdraw"></button>
+            </form>
+            <br>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
