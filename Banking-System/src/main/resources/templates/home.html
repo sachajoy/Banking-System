@@ -19,15 +19,20 @@
         </button>
     </form>
 
+
+    <h2 th:text="${userDetails.username}">${}</h2>
+    <h2 th:text="${userDetails.accountNumber}"></h2>
+    <h2>
+        <span>Balance: </span>
+        <span th:text="${userDetails.balance}">Rupees</span>
+        <span>Rupees</span>
+
+    </h2>
+
+    <h2><span class="text-success" th:utext="${successMessage}">Hello</span></h2>
+    <h2><span class="text-error" th:utext="${errorMessage}"></span></h2>
     <div class="panel-group" style="margin-top:40px">
         <div class="panel panel-primary">
-            <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
-            <h2><span class="text-success" th:utext="${errorMessage}"></span></h2>
-
-            <div class="panel-heading">
-                <span th:utext="${userDetails.username}"></span> -
-                <span th:utext="${userDetails.balance}"></span>
-            </div>
             <div class="panel-body">
 <!--                <img th:src="@{/images/beer.jpg}" class="img-responsive center-block" width="400" height="400"-->
 <!--                     alt="Beer"/>-->

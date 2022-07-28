@@ -45,7 +45,8 @@ public class LoginAndRegistrationController {
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("registration");
         } else {
-            user.setAccountNumber(String.valueOf(Math.random() * ((10000000 - 9999999)+ 1) + 9999999));
+            int v = (int) (Math.random() * 10000000);
+            user.setAccountNumber(String.valueOf(v));
             user.setBalance(0);
             userService.saveUser(user);
             modelAndView.addObject("successMessage", "User has been registered successfully");

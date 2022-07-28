@@ -31,7 +31,7 @@ public class DepositMoneyController {
             modelAndView.setViewName("home");
             return modelAndView;
         }
-        balance -= depositAmount.getDepositAmount();
+        balance += depositAmount.getDepositAmount();
         user.setBalance(balance);
         userService.saveUser(user);
         modelAndView.addObject("successMessage", "Amount Deposited");
@@ -52,10 +52,10 @@ public class DepositMoneyController {
             modelAndView.setViewName("home");
             return modelAndView;
         }
-        balance += depositAmount.getDepositAmount();
+        balance -= depositAmount.getDepositAmount();
         user.setBalance(balance);
         userService.saveUser(user);
-        modelAndView.addObject("successMessage", "Amount Deposited");
+        modelAndView.addObject("successMessage", "Amount Withdrawn");
         modelAndView.addObject("userDetails", user);
         modelAndView.setViewName("home");
         return modelAndView;
